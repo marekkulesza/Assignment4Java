@@ -7,29 +7,18 @@ package Assignment4;
         has a toString() method that reports the text of the current face. It can also draw itself on a
         GraphicsContext when it is given an x and y location. That’s all it can do.  */
 
+import java.util.Arrays;
+
 public class Wheel {
 
-    private String[] x;
+    private final String[] faces = {"7", "Cherries", "Bar", "King", "Bob","ACES", "YEET"};
 
-    public Wheel(String[] x) {
-        this.x = new String[x.length];
-        for (int i = 0; i < x.length; i++) {
-            this.x[i] = x[i];
-        }
+    public String[] getFaces() {
+        return faces;
     }
 
-    public String[] getX() {
-        return x;
-    }
     public static void main(String[] args) {
-
-        String[] wheelList = {"7", "Cherries", "Bar", "King", "Bobbert"};
-        Wheel firstWheel = new Wheel(wheelList);
-
-        for (String word : wheelList) {
-            System.out.print(word + " ");
-        }
-        System.out.println();
-
+        Wheel newWheel = new Wheel();
+        System.out.println(Arrays.toString(newWheel.getFaces()));
     }
 }
