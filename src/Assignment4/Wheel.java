@@ -21,7 +21,6 @@ public class Wheel {
     public String[] getX() {
         return x;
     }
-
     public static void main(String[] args) {
 
         String[] wheelList = {"7", "Cherries", "Bar", "King", "Bobbert"};
