@@ -23,6 +23,14 @@ public class SlotMachine {
         }
     }
 
+    public String[] getFacesList() {
+        return facesList;
+    }
+
+    public String[] getColours() {
+        return colours;
+    }
+
     public void rollers() {
         for (Wheel element: wheelList) {
             element.roll();
@@ -31,7 +39,7 @@ public class SlotMachine {
 
     public void payouts() {
         // Total number of occurrences
-        int[] histogram = new int[(wheelList.toArray().length)+1];
+        int[] payout = new int[(wheelList.toArray().length)+1];
             for (int i = 0; i < 1_000_000; i++) {
                 List<Integer> numList = new ArrayList<>();
                 int counter = 0;
@@ -42,16 +50,18 @@ public class SlotMachine {
                     }
                     numList.add(item);
                 }
-                histogram[counter]++;
+                payout[counter]++;
             }
-
             for (int i = 0; i < wheelList.toArray().length; i++) {
                 if (i<wheelList.toArray().length)
                     System.out.print(" ");
-                System.out.println(i + ": " + histogram[i]);
+                System.out.println(i + ": " + payout[i]);
             }
         }
 
+    public List<Wheel> getWheelList() {
+        return wheelList;
+    }
 
     @Override
     public String toString() {

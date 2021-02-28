@@ -19,7 +19,7 @@ public class Main {
         slotMachineList.add(Yeet1);
         slotMachineList.add(Yeet2);
 
-        System.out.println("Choose a SlotMachine, they have different names but are all the same inside :) ");
+        System.out.println("Choose a SlotMachine, they have different names but we are all the same inside :) ");
         System.out.println("1, 2, or 1");
 
         int choice = sc.nextInt();
@@ -78,13 +78,6 @@ public class Main {
                 System.out.println("Bye now");
                 quit = 1;
             }
-
         }
-
-
-
-
-
-
     }
 }
