@@ -1,6 +1,8 @@
 package Assignment4;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class SlotMachine {
 
@@ -8,16 +10,10 @@ public class SlotMachine {
     private final String[] facesList;
     private final int numWheels;
     private final String[] colours = {"BLUE", "RED", "GREEN", "ORANGE", "PINK", "GRAY", "MAGENTA"};
-    private Wheel[] wheelList;
 
-    @Override
-    public String toString() {
-        return "SlotMachine{" +
-                "facesList=" + Arrays.toString(facesList) +
-                ", numWheels=" + numWheels +
-                ", wheelList=" + Arrays.toString(wheelList) +
-                '}';
-    }
+    private List<Wheel> wheelList = new ArrayList<Wheel>() {
+    };
+
 
     public SlotMachine(String[] x, int numWheels) {
 
@@ -29,8 +25,18 @@ public class SlotMachine {
         }
 
         for (int i = 0; i < numWheels; i++){
-            wheelList[i] = new Wheel(facesList);
+            wheelList.add(new Wheel(facesList));
         }
+    }
+
+    @Override
+    public String toString() {
+        return "SlotMachine{" +
+                "facesList=" + Arrays.toString(facesList) +
+                ", numWheels=" + numWheels +
+                ", colours=" + Arrays.toString(colours) +
+                ", wheelList=" + wheelList +
+                '}';
     }
 
     public static void main(String[] args) {
