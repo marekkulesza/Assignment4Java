@@ -52,25 +52,5 @@ public class Wheel {
         return "" + winFace;
     }
 
-    public static void main(String[] args) {
 
-        Wheel newWheel = new Wheel();
-        System.out.println();
-        newWheel.roll();
-        System.out.println(newWheel.getWinner());
-        System.out.println(newWheel.getLength());
-
-        Wheel newWheel2 = new Wheel(new String[]{"1", "2", "3", "4", "5", "6", "WINNER"});
-        System.out.println();
-        newWheel2.roll();
-        System.out.println(newWheel2.getWinner());
-        System.out.println(newWheel2.getLength());
-
-        System.out.println();
-
-        System.out.println(newWheel);
-        System.out.println(newWheel2);
-
-
-    }
 }
