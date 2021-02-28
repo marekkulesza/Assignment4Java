@@ -12,8 +12,8 @@ package Assignment4;
 
 public class Wheel {
 
-    private String[] faces = {"7", "Cherries", "Bar", "King", "Bob","ACES", "YEET"};
-    private final String[] colours = {"BLUE", "RED", "GREEN", "ORANGE", "PINK","GRAY", "MAGENTA"};
+    private String[] faces = {"7", "Cherries", "Bar", "King", "Bob", "ACES", "YEET"};
+    private final String[] colours = {"BLUE", "RED", "GREEN", "ORANGE", "PINK", "GRAY", "MAGENTA"};
     private String winFace;
 
     public Wheel() {
@@ -35,11 +35,11 @@ public class Wheel {
         return colours[(int) (Math.random() * colours.length)];
     }
 
-    public String getWinner(){
+    public String getWinner() {
         return "the showing face is: " + winFace;
     }
 
-    public String getLength(){
+    public String getLength() {
         return "the length of the list is: " + faces.length;
     }
 
@@ -49,7 +49,6 @@ public class Wheel {
     }
 
     public static void main(String[] args) {
-
 
 
         Wheel newWheel = new Wheel();
