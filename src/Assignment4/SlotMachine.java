@@ -35,7 +35,6 @@ public class SlotMachine {
         int innerCounter = 0;
 
         for (Wheel w : wheelList){
-            System.out.println(w.getWinFace());
 
             int counter = -1;
 
@@ -55,6 +54,14 @@ public class SlotMachine {
 
     public static void main(String[] args) {
         SlotMachine Yeet1 = new SlotMachine(new String[]{"7", "Cherries", "Bar", "King", "Bob"},4);
+        Yeet1.rollers();
+        System.out.println(Yeet1);
+        Yeet1.rollers();
+        System.out.println(Yeet1);
+        Yeet1.rollers();
+        System.out.println(Yeet1);
+        Yeet1.rollers();
+        System.out.println(Yeet1);
         Yeet1.rollers();
         System.out.println(Yeet1);
     }
