@@ -1,6 +1,7 @@
 package Assignment4;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SlotMachine {
@@ -31,18 +32,20 @@ public class SlotMachine {
     @Override
     public String toString() {
 
+        int counter = 0;
+
+        for (Wheel w : wheelList){
+            System.out.println(w.getWinFace());
 
 
-        for (Wheel wheel : wheelList){
-            System.out.println(wheel.getWinFace());
-            for (int i = 0; i < wheelList.size(); i++) {
-                if (wheel.getWinFace() == (wheelList.get(i))){
-
+            for (Wheel wheel : wheelList) {
+                if (w.getWinFace().equals(wheel.getWinFace())) {
+                    counter++;
                 }
             }
         }
 
-        return "SlotMachine " + wheelList;
+        return "SlotMachine " + wheelList + " You got " + (counter) + " Point";
     }
 
     public static void main(String[] args) {
