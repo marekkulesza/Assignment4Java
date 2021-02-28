@@ -36,16 +36,25 @@ public class SlotMachine {
         int totalOcc = (int) Math.pow(facesList.length, wheelList.toArray().length);
         System.out.println("Total number \t " + totalOcc);
 
-        // X number of occurrences
-        for (int ii = 0; ii < wheelList.toArray().length+1; ii++) {
-            System.out.print(ii + "\t Matches\t ");
-            for (int i = 1; i < wheelList.toArray().length+1; i++) {
-                math = (facesList.length - i);
-                ans += ans * math;
+        int[] histogram = new int[(facesList.length*wheelList.toArray().length)+1];
+
+            for (int i = 0; i < 1000000; i++) {
+
+                int sum = 0;
+                for (int j = 0; j < wheelList.toArray().length; j++) {
+                    int item = (int) (Math.random() * facesList.length + 1);
+                    sum += item;
+                }
+                histogram[sum]++;
             }
-            System.out.println(ans);
+
+            for (int i = wheelList.toArray().length; i < facesList.length*wheelList.toArray().length+1; i++) {
+                if (i<wheelList.toArray().length)
+                    System.out.print(" ");
+                System.out.println(i + ": " + histogram[i]);
+            }
         }
-    }
+
 
     @Override
     public String toString() {
