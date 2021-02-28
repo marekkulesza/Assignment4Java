@@ -31,6 +31,10 @@ public class Wheel {
         return faces;
     }
 
+    public String getColours() {
+        return colours[(int) (Math.random() * colours.length)];
+    }
+
     public String getWinner(){
         return "the showing face is: " + winFace;
     }
