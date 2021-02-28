@@ -31,6 +31,10 @@ public class Wheel {
         return faces;
     }
 
+    public String getWinFace() {
+        return winFace;
+    }
+
     public String getColours() {
         return colours[(int) (Math.random() * colours.length)];
     }
@@ -45,18 +49,16 @@ public class Wheel {
 
     @Override
     public String toString() {
-        return "This was the answer " + winFace;
+        return "" + winFace;
     }
 
     public static void main(String[] args) {
-
 
         Wheel newWheel = new Wheel();
         System.out.println();
         newWheel.roll();
         System.out.println(newWheel.getWinner());
         System.out.println(newWheel.getLength());
-
 
         Wheel newWheel2 = new Wheel(new String[]{"1", "2", "3", "4", "5", "6", "WINNER"});
         System.out.println();

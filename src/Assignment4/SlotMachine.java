@@ -1,33 +1,28 @@
 package Assignment4;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class SlotMachine {
 
 
-    private final String[] facesList;
-    private final int numWheels;
     private final String[] colours = {"BLUE", "RED", "GREEN", "ORANGE", "PINK", "GRAY", "MAGENTA"};
-
-    private List<Wheel> wheelList = new ArrayList<>() {
-    };
-
+    private List<Wheel> wheelList = new ArrayList<>();
 
     public SlotMachine(String[] x, int numWheels) {
 
-        this.facesList = new String[x.length];
-        this.numWheels = numWheels;
-        
+        String[] facesList = new String[x.length];
+
         for (int i = 0; i < x.length; i++) {
-            this.facesList[i] = x[i];
+            facesList[i] = x[i];
         }
 
         for (int i = 0; i < numWheels; i++){
             wheelList.add(new Wheel(facesList));
         }
+    }
 
+    public void rollers() {
         for (Wheel element: wheelList) {
             element.roll();
         }
@@ -35,18 +30,24 @@ public class SlotMachine {
 
     @Override
     public String toString() {
-        return "SlotMachine{" +
-                "facesList=" + Arrays.toString(facesList) +
-                ", numWheels=" + numWheels +
-                ", colours=" + Arrays.toString(colours) +
-                ", wheelList=" + wheelList +
-                '}';
+
+
+
+        for (Wheel wheel : wheelList){
+            System.out.println(wheel.getWinFace());
+            for (int i = 0; i < wheelList.size(); i++) {
+                if (wheel.getWinFace() == (wheelList.get(i))){
+
+                }
+            }
+        }
+
+        return "SlotMachine " + wheelList;
     }
 
     public static void main(String[] args) {
         SlotMachine Yeet1 = new SlotMachine(new String[]{"7", "Cherries", "Bar", "King", "Bob"},4);
-
+        Yeet1.rollers();
         System.out.println(Yeet1);
-
     }
 }
