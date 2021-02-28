@@ -32,20 +32,25 @@ public class SlotMachine {
     @Override
     public String toString() {
 
-        int counter = 0;
+        int innerCounter = 0;
 
         for (Wheel w : wheelList){
             System.out.println(w.getWinFace());
 
+            int counter = -1;
 
             for (Wheel wheel : wheelList) {
                 if (w.getWinFace().equals(wheel.getWinFace())) {
                     counter++;
                 }
+                if (counter > innerCounter) {
+                    innerCounter = counter;
+                    counter = 0;
+                }
             }
         }
 
-        return "SlotMachine " + wheelList + " You got " + (counter) + " Point";
+        return "SlotMachine " + wheelList + " You got " + (innerCounter) + " Point";
     }
 
     public static void main(String[] args) {
