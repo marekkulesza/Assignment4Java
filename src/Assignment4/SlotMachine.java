@@ -29,10 +29,8 @@ public class SlotMachine {
         }
     }
 
-    public void occurrences() {
+    public void payouts() {
         // Total number of occurrences
-        int totalOcc = (int) Math.pow(facesList.length, wheelList.toArray().length);
-        System.out.println("Total number \t " + totalOcc);
         int[] histogram = new int[(wheelList.toArray().length)+1];
             for (int i = 0; i < 1_000_000; i++) {
                 List<Integer> numList = new ArrayList<>();

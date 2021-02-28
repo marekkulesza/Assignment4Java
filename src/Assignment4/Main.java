@@ -70,7 +70,7 @@ public class Main {
             // Calculate the occurrences
             if (decisionChoice == 2) {
                 System.out.println("Payout Occurrence");
-                slotMachineList.get(choice).occurrences();
+                slotMachineList.get(choice).payouts();
             }
 
             // Quit the program
