@@ -11,7 +11,7 @@ public class SlotMachine {
     private final int numWheels;
     private final String[] colours = {"BLUE", "RED", "GREEN", "ORANGE", "PINK", "GRAY", "MAGENTA"};
 
-    private List<Wheel> wheelList = new ArrayList<Wheel>() {
+    private List<Wheel> wheelList = new ArrayList<>() {
     };
 
 
@@ -26,6 +26,10 @@ public class SlotMachine {
 
         for (int i = 0; i < numWheels; i++){
             wheelList.add(new Wheel(facesList));
+        }
+
+        for (Wheel element: wheelList) {
+            element.roll();
         }
     }
 
@@ -45,5 +49,4 @@ public class SlotMachine {
         System.out.println(Yeet1);
 
     }
-
 }

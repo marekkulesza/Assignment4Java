@@ -45,7 +45,7 @@ public class Wheel {
 
     @Override
     public String toString() {
-        return winFace;
+        return "This was the answer " + winFace;
     }
 
     public static void main(String[] args) {
