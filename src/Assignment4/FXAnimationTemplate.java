@@ -66,21 +66,21 @@ public class FXAnimationTemplate extends Application {
 
         List<SlotMachine> slotMachineList = new ArrayList<>();
 
-        SlotMachine Yeet1 = new SlotMachine(new String[]{"YEET", "DOG", "WOOF", "BORK", "BAH"},4);
+        SlotMachine Yeet1 = new SlotMachine(new String[]{"YEET", "DOG", "WOOF", "BORK", "BAH","YELLOW", "ZOOOM"},7);
         SlotMachine Yeet2 = new SlotMachine(new String[]{"7", "Cherries", "Bar", "King", "Bob"},4);
 
         slotMachineList.add(Yeet1);
         slotMachineList.add(Yeet2);
 
         System.out.println("Choose a SlotMachine, they have different names but are all the same inside :) ");
-        System.out.println("1, 2, or 1");
+        System.out.println("0, 1, or 0");
 
         int choice = sc.nextInt();
 
-        while (!(choice >= 1 && choice <= 2)) {
-            System.err.println("Please enter a number between 1 to 2");
+        while (!(choice >= 0 && choice <= 1)) {
+            System.err.println("Please enter a number between 0 or 1");
             int choiceAgain = sc.nextInt();
-            if (choiceAgain >= 1 && choiceAgain <= 2) {
+            if (choiceAgain >=0 && choiceAgain <= 1) {
                 choice = choiceAgain;
                 break;
             }
@@ -88,11 +88,11 @@ public class FXAnimationTemplate extends Application {
 
 
         // choices to start up the machine
-        if (choice == 1) {
+        if (choice == 0) {
             Yeet1.rollers();
         }
 
-        if (choice == 2) {
+        if (choice == 1) {
             Yeet2.rollers();
         }
 
@@ -117,7 +117,7 @@ public class FXAnimationTemplate extends Application {
             if (decisionChoice == 1) {
                 slotMachineList.get(choice).rollers();
                 System.out.println(slotMachineList.get(choice));
-                // Reseting the values to here
+                // Resetting the values to here
                 int x = 50;
                 int y = 50;
 
@@ -132,7 +132,7 @@ public class FXAnimationTemplate extends Application {
                 for (int i = 0; i < wheelios.size(); i++) {
                     gc.setStroke(Color.web(colorElemento[i]));
                     gc.strokeText(String.valueOf(wheelios.get(i)), x,y);
-                    y += 50;
+                    y += 30;
                 }
             }
 
