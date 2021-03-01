@@ -3,6 +3,16 @@ package Assignment4;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * This is our 4th assignment SlotMachine Object
+ * get 2 of the same faces and get 1 point
+ * 3 faces in a row for 2 points
+ * 4 faces in a row for 3 points
+ * Created Feb 28th, 2021
+ *
+ * @author Marek Kulesza
+ */
 public class SlotMachine {
 
     /**
@@ -16,10 +26,17 @@ public class SlotMachine {
     private final String[] colours = {"BLUE", "RED", "GREEN", "ORANGE", "PINK", "GRAY", "MAGENTA"};
 
     /**
-     *
+     * the list of Wheel objects
      */
     private final List<Wheel> wheelList = new ArrayList<>();
 
+    /**
+     * A SlotMachine constructor, it has a payout system
+     * and a lota rolls method to show the payouts over 1million rolls
+     *
+     * @param x         A list of strings from the facesList
+     * @param numWheels the number of wheels for your slotMachine
+     */
     public SlotMachine(String[] x, int numWheels) {
 
         this.facesList = new String[x.length];
@@ -28,56 +45,79 @@ public class SlotMachine {
             facesList[i] = x[i];
         }
 
-        for (int i = 0; i < numWheels; i++){
+        for (int i = 0; i < numWheels; i++) {
             wheelList.add(new Wheel(facesList));
         }
     }
 
-    public String[] getFacesList() {
-        return facesList;
-    }
-
+    /**
+     * gets a string list of colours to be used in the drawings
+     *
+     * @return a String list of colours
+     */
     public String[] getColours() {
         return colours;
     }
 
+
+    /**
+     * rollers rolls all the wheels
+     */
     public void rollers() {
-        for (Wheel element: wheelList) {
+        for (Wheel element : wheelList) {
             element.roll();
         }
     }
 
+    /**
+     * this payouts method is used to calculate the payouts
+     * of a slotMachine over 1million rolls.
+     *
+     * :)
+     */
     public void payouts() {
         // Total number of occurrences
-        int[] payout = new int[(wheelList.toArray().length)+1];
-            for (int i = 0; i < 1_000_000; i++) {
-                List<Integer> numList = new ArrayList<>();
-                int counter = 0;
-                for (int j = 0; j < wheelList.toArray().length; j++) {
-                    int item = (int) (Math.random() * facesList.length + 1);
-                    if (numList.contains(item)) {
-                        counter++;
-                    }
-                    numList.add(item);
+        int[] payout = new int[(wheelList.toArray().length) + 1];
+        for (int i = 0; i < 1_000_000; i++) {
+            List<Integer> numList = new ArrayList<>();
+            int counter = 0;
+            for (int j = 0; j < wheelList.toArray().length; j++) {
+                int item = (int) (Math.random() * facesList.length + 1);
+                if (numList.contains(item)) {
+                    counter++;
                 }
-                payout[counter]++;
+                numList.add(item);
             }
-            for (int i = 0; i < wheelList.toArray().length; i++) {
-                if (i<wheelList.toArray().length)
-                    System.out.print(" ");
-                System.out.println(i + ": " + payout[i]);
-            }
+            payout[counter]++;
         }
+        for (int i = 0; i < wheelList.toArray().length; i++) {
+            if (i < wheelList.toArray().length)
+                System.out.print(" ");
+            System.out.println(i + ": " + payout[i]);
+        }
+    }
 
+    /**
+     * A list of Wheels
+     *
+     * @return a list of wheels
+     */
     public List<Wheel> getWheelList() {
         return wheelList;
     }
 
+    /**
+     * Overrides the toString so that it
+     * posts the payout of the the winning faces
+     *
+     *
+     * @return the Slot Machine the amount of faces and the winnings
+     */
     @Override
     public String toString() {
 
         int innerCounter = 0;
-        for (Wheel w : wheelList){
+        for (Wheel w : wheelList) {
             int counter = -1;
             for (Wheel wheel : wheelList) {
                 if (w.getWinFace().equals(wheel.getWinFace())) {
@@ -90,7 +130,7 @@ public class SlotMachine {
             }
         }
 
-        return "SlotMachine " + wheelList + " You got " + (innerCounter) + " Point";
+        return "SlotMachine has " + wheelList.size() + " faces: " + wheelList + " You got " + (innerCounter) + " Point";
     }
 
 

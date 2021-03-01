@@ -86,6 +86,8 @@ public class FXAnimationTemplate extends Application {
             }
         }
 
+
+        // choices to start up the machine
         if (choice == 1) {
             Yeet1.rollers();
         }
@@ -115,15 +117,19 @@ public class FXAnimationTemplate extends Application {
             if (decisionChoice == 1) {
                 slotMachineList.get(choice).rollers();
                 System.out.println(slotMachineList.get(choice));
-
+                // Reseting the values to here
                 int x = 50;
                 int y = 50;
 
+                // Getting the elements from the slot machine to draw
                 String[] colorElemento = slotMachineList.get(choice).getColours();
                 List<Wheel> wheelios = slotMachineList.get(choice).getWheelList();
-                gc.clearRect(0, 0, 400, 300);
-                for (int i = 0; i < wheelios.size(); i++) {
 
+                // Clearing the screen
+                gc.clearRect(0, 0, 400, 300);
+
+                // Drawing the elements on the screen
+                for (int i = 0; i < wheelios.size(); i++) {
                     gc.setStroke(Color.web(colorElemento[i]));
                     gc.strokeText(String.valueOf(wheelios.get(i)), x,y);
                     y += 50;
