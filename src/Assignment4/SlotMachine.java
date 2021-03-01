@@ -5,10 +5,20 @@ import java.util.List;
 
 public class SlotMachine {
 
+    /**
+     * a List of winning faces as Strings
+     */
     private final String[] facesList;
+
+    /**
+     * A list of colours to be used in the future
+     */
     private final String[] colours = {"BLUE", "RED", "GREEN", "ORANGE", "PINK", "GRAY", "MAGENTA"};
-    private List<Wheel> wheelList = new ArrayList<>();
-    private int numWheels;
+
+    /**
+     *
+     */
+    private final List<Wheel> wheelList = new ArrayList<>();
 
     public SlotMachine(String[] x, int numWheels) {
 
