@@ -31,7 +31,7 @@ public class FXAnimationTemplate extends Application {
      */
     @Override
     public void start(Stage stage) {
-        stage.setTitle("Section 1.4 Animated!"); // window title here
+        stage.setTitle("$$$ Slot Machine $$$"); // window title here
         Canvas canvas = new Canvas(400, 300); // canvas size here
         Group root = new Group();
         Scene scene = new Scene(root);
