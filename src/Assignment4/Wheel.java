@@ -50,6 +50,16 @@ public class Wheel {
         return colour;
     }
 
+
+    /**
+     * Gets the number of faces on the wheel
+     *
+     * @return the int of number of faces
+     */
+    public int getNumFaces() {
+        return numFaces;
+    }
+
     /**
      * Randomly chooses a String from faces
      */
@@ -76,7 +86,7 @@ public class Wheel {
     }
 
     /**
-     * Overides the String method to out
+     * Overrides the String method to out
      * the winfaces
      *
      * @return winFace: the winning String from the list

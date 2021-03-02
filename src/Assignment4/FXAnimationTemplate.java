@@ -64,10 +64,15 @@ public class FXAnimationTemplate extends Application {
         Scanner sc = new Scanner(System.in);
 
 
+        String[] largeFacesList = {"YEET", "DOG", "WOOF", "BORK", "BAH","YELLOW", "ZOOOM"};
+        String[] smallFacesList = {"7", "Cherries", "Bar", "King", "Bob"};
+        String[] largeColourList = {"BLUE", "RED", "GREEN", "ORANGE", "PINK", "GRAY", "MAGENTA"};
+        String[] smallColourList = {"BLUE", "RED", "GREEN", "ORANGE",};
+
         List<SlotMachine> slotMachineList = new ArrayList<>();
 
-        SlotMachine Yeet1 = new SlotMachine(new String[]{"YEET", "DOG", "WOOF", "BORK", "BAH","YELLOW", "ZOOOM"},7);
-        SlotMachine Yeet2 = new SlotMachine(new String[]{"7", "Cherries", "Bar", "King", "Bob"},4);
+        SlotMachine Yeet1 = new SlotMachine(largeFacesList,7, largeColourList);
+        SlotMachine Yeet2 = new SlotMachine(smallFacesList,4, smallColourList) ;
 
         slotMachineList.add(Yeet1);
         slotMachineList.add(Yeet2);

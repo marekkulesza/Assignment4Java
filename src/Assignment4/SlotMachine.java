@@ -22,8 +22,9 @@ public class SlotMachine {
 
     /**
      * A list of colours to be used in the future
+     * {"BLUE", "RED", "GREEN", "ORANGE", "PINK", "GRAY", "MAGENTA"}
      */
-    private final String[] colours = {"BLUE", "RED", "GREEN", "ORANGE", "PINK", "GRAY", "MAGENTA"};
+    private String[] colours = {"BLUE", "RED", "GREEN", "ORANGE", "PINK", "GRAY", "MAGENTA"};
 
     /**
      * the list of Wheel objects
@@ -37,9 +38,10 @@ public class SlotMachine {
      * @param x         A list of strings from the facesList
      * @param numWheels the number of wheels for your slotMachine
      */
-    public SlotMachine(String[] x, int numWheels) {
+    public SlotMachine(String[] x, int numWheels, String[] colours) {
 
         this.facesList = new String[x.length];
+        this.colours = colours;
 
         for (int i = 0; i < x.length; i++) {
             facesList[i] = x[i];
@@ -93,12 +95,6 @@ public class SlotMachine {
                 System.out.println(a + ": " + histogram[a]);
             }
         }
-
-
-    public static void main(String[] args) {
-        SlotMachine Yeet1 = new SlotMachine(new String[]{"YEET", "DOG", "WOOF", "BORK", "BAH","YELLOW", "ZOOOM"},7);
-        Yeet1.histogram();
-    }
 
     /**
      * this payouts method is used to calculate the payouts
