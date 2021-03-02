@@ -17,25 +17,37 @@ public class Wheel {
      * A list of faces passed from the SlotMachine
      */
     private final String[] faces;
-
-    /**
-     * The list of Colours
-     */
-    private final String[] colours = {"BLUE", "RED", "GREEN", "ORANGE", "PINK", "GRAY", "MAGENTA"};
+    private final int numFaces;
 
     /**
      * The calculated face that won the roll method
      */
     private String winFace;
 
+    /**
+     * Choice of colour, Default is BLACK
+     */
+    private String colour = "BLACK";
 
     /**
      * A Wheel constructor
      *
      * @param faces a list of Strings
      */
-    public Wheel(String[] faces) {
+    public Wheel(String[] faces, String colour, int numFaces) {
         this.faces = faces;
+        this.colour = colour;
+        this.numFaces = numFaces;
+    }
+
+
+    /**
+     * gets the colour of the wheel default is black
+     *
+     * @return String colour
+     */
+    public String getColour() {
+        return colour;
     }
 
     /**

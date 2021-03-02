@@ -46,7 +46,9 @@ public class SlotMachine {
         }
 
         for (int i = 0; i < numWheels; i++) {
-            wheelList.add(new Wheel(facesList));
+            int randomColourIndex = (int) (Math.random() * colours.length);
+
+            wheelList.add(new Wheel(facesList, colours[randomColourIndex], facesList.length));
         }
     }
 
@@ -67,6 +69,35 @@ public class SlotMachine {
         for (Wheel element : wheelList) {
             element.roll();
         }
+    }
+
+    /**
+     * This is the real histogram method
+     */
+    public void histogram() {
+            int[] histogram = new int[(facesList.length * wheelList.toArray().length) + 1];
+
+            for (int i = 0; i < 1000000; i++) {
+
+                int sum = 0;
+                for (int j = 0; j < wheelList.toArray().length; j++) {
+                    int item = (int) (Math.random() * facesList.length + 1);
+                    sum += item;
+                }
+                histogram[sum]++;
+            }
+
+            for (int a = wheelList.toArray().length; a < facesList.length * wheelList.toArray().length + 1; a++) {
+                if (a < wheelList.toArray().length)
+                    System.out.print(" ");
+                System.out.println(a + ": " + histogram[a]);
+            }
+        }
+
+
+    public static void main(String[] args) {
+        SlotMachine Yeet1 = new SlotMachine(new String[]{"YEET", "DOG", "WOOF", "BORK", "BAH","YELLOW", "ZOOOM"},7);
+        Yeet1.histogram();
     }
 
     /**
