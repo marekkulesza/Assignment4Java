@@ -33,10 +33,11 @@ public class SlotMachine {
 
     /**
      * A SlotMachine constructor, it has a payout system
-     * and a lota rolls method to show the payouts over 1million rolls
+     * and a lot of rolls method to show the payouts over 1million rolls
      *
      * @param x         A list of strings from the facesList
      * @param numWheels the number of wheels for your slotMachine
+     * @param colours   A list of strings of colours
      */
     public SlotMachine(String[] x, int numWheels, String[] colours) {
 
@@ -75,6 +76,8 @@ public class SlotMachine {
 
     /**
      * This is the real histogram method
+     * it calculates the points and where they go
+     * to anywhere in a list and prints them out
      */
     public void histogram() {
         int[] histogram = new int[(facesList.length * wheelList.toArray().length) + 1];
@@ -97,10 +100,23 @@ public class SlotMachine {
      * this payouts method is used to calculate the payouts
      * of a slotMachine over 1million rolls.
      *
-     * :)
+     * @return  int a number that is calculated with matching faces
      */
-    public void payouts() {
-
+    public int payouts() {
+        int innerCounter = 0;
+        for (Wheel w : wheelList) {
+            int counter = -1;
+            for (Wheel wheel : wheelList) {
+                if (w.getWinFace().equals(wheel.getWinFace())) {
+                    counter++;
+                }
+                if (counter > innerCounter) {
+                    innerCounter = counter;
+                    counter = 0;
+                }
+            }
+        }
+        return innerCounter;
     }
 
     /**
@@ -116,27 +132,11 @@ public class SlotMachine {
      * Overrides the toString so that it
      * posts the payout of the the winning faces
      *
-     *
      * @return the Slot Machine the amount of faces and the winnings
      */
     @Override
     public String toString() {
-
-        int innerCounter = 0;
-        for (Wheel w : wheelList) {
-            int counter = -1;
-            for (Wheel wheel : wheelList) {
-                if (w.getWinFace().equals(wheel.getWinFace())) {
-                    counter++;
-                }
-                if (counter > innerCounter) {
-                    innerCounter = counter;
-                    counter = 0;
-                }
-            }
-        }
-
-        return "SlotMachine has " + wheelList.size() + " faces: " + wheelList + " You got " + (innerCounter) + " Point";
+        return "SlotMachine has " + wheelList.size() + " wheels: " + wheelList + " You got " + (payouts()) + " Point";
     }
 
 

@@ -6,7 +6,7 @@ package Assignment4;
  * faces indicate what is on the wheel
  * colours indicates a list of colours you can use
  * Created Feb 28th, 2021
- *
+ * <p>
  * * @author Marek Kulesza
  */
 
@@ -17,7 +17,21 @@ public class Wheel {
      * A list of faces passed from the SlotMachine
      */
     private final String[] faces;
+
+    /**
+     * the number of faces on the wheel
+     */
     private final int numFaces;
+
+    /**
+     * the x position for the FXAnimation
+     */
+    private int xPosition = 0;
+
+    /**
+     * the y position for the FXAnimation
+     */
+    private int yPosition = 0;
 
     /**
      * The calculated face that won the roll method
@@ -30,9 +44,11 @@ public class Wheel {
     private String colour = "BLACK";
 
     /**
-     * A Wheel constructor
+     * A basic Wheel constructor with no x or y coordinator
      *
-     * @param faces a list of Strings
+     * @param faces A String list of faces for the Wheel
+     * @param colour A String for the colour use CAPS
+     * @param numFaces the number of faces on the wheel
      */
     public Wheel(String[] faces, String colour, int numFaces) {
         this.faces = faces;
@@ -40,6 +56,25 @@ public class Wheel {
         this.numFaces = numFaces;
     }
 
+    /**
+     * A basic Wheel constructor with x or y coordinator
+     * for the FX Animation
+     *
+     * @param faces A String list of faces for the Wheel
+     * @param colour A String for the colour use CAPS
+     * @param numFaces the number of faces on the wheel
+     * @param xPosition the x position for the FXAnimation
+     * @param yPosition the y position for the FXAnimation
+     */
+    public Wheel(String[] faces, String colour, int numFaces, int xPosition, int yPosition) {
+        this.faces = faces;
+        this.colour = colour;
+        this.numFaces = numFaces;
+        this.xPosition = xPosition;
+        this.yPosition = yPosition;
+        // Honestly I never used this because I was tired, but if I did I would have
+        // used this xPos and yPos in the animation instead setting it in the FXAnimation
+    }
 
     /**
      * gets the colour of the wheel default is black
