@@ -144,7 +144,7 @@ public class FXAnimationTemplate extends Application {
             // Calculate the occurrences
             else if (decisionChoice == 2) {
                 System.out.println("Payout Occurrence");
-                slotMachineList.get(choice).payouts();
+                slotMachineList.get(choice).histogram();
             }
 
             // Quit the program

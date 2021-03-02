@@ -24,7 +24,7 @@ public class SlotMachine {
      * A list of colours to be used in the future
      * {"BLUE", "RED", "GREEN", "ORANGE", "PINK", "GRAY", "MAGENTA"}
      */
-    private String[] colours = {"BLUE", "RED", "GREEN", "ORANGE", "PINK", "GRAY", "MAGENTA"};
+    private final String[] colours;
 
     /**
      * the list of Wheel objects
@@ -77,24 +77,21 @@ public class SlotMachine {
      * This is the real histogram method
      */
     public void histogram() {
-            int[] histogram = new int[(facesList.length * wheelList.toArray().length) + 1];
-
-            for (int i = 0; i < 1000000; i++) {
-
-                int sum = 0;
-                for (int j = 0; j < wheelList.toArray().length; j++) {
-                    int item = (int) (Math.random() * facesList.length + 1);
-                    sum += item;
-                }
-                histogram[sum]++;
+        int[] histogram = new int[(facesList.length * wheelList.toArray().length) + 1];
+        for (int i = 0; i < 1000000; i++) {
+            int sum = 0;
+            for (int j = 0; j < wheelList.toArray().length; j++) {
+                int item = (int) (Math.random() * facesList.length + 1);
+                sum += item;
             }
-
-            for (int a = wheelList.toArray().length; a < facesList.length * wheelList.toArray().length + 1; a++) {
-                if (a < wheelList.toArray().length)
-                    System.out.print(" ");
-                System.out.println(a + ": " + histogram[a]);
-            }
+            histogram[sum]++;
         }
+        for (int a = wheelList.toArray().length; a < facesList.length * wheelList.toArray().length + 1; a++) {
+            if (a < wheelList.toArray().length)
+                System.out.print(" ");
+            System.out.println(a + ": " + histogram[a]);
+        }
+    }
 
     /**
      * this payouts method is used to calculate the payouts
@@ -103,25 +100,7 @@ public class SlotMachine {
      * :)
      */
     public void payouts() {
-        // Total number of occurrences
-        int[] payout = new int[(wheelList.toArray().length) + 1];
-        for (int i = 0; i < 1_000_000; i++) {
-            List<Integer> numList = new ArrayList<>();
-            int counter = 0;
-            for (int j = 0; j < wheelList.toArray().length; j++) {
-                int item = (int) (Math.random() * facesList.length + 1);
-                if (numList.contains(item)) {
-                    counter++;
-                }
-                numList.add(item);
-            }
-            payout[counter]++;
-        }
-        for (int i = 0; i < wheelList.toArray().length; i++) {
-            if (i < wheelList.toArray().length)
-                System.out.print(" ");
-            System.out.println(i + ": " + payout[i]);
-        }
+
     }
 
     /**
